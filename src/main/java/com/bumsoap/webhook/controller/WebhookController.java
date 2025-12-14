@@ -1,5 +1,6 @@
 package com.bumsoap.webhook.controller;
 
+import com.bumsoap.webhook.request.WebhookRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +16,7 @@ public class WebhookController {
     private static final Logger logger = LoggerFactory.getLogger(WebhookController.class);
 
     @PostMapping("/api/webhook-listener")
-    public String handleWebhook(@RequestBody String payload) {
+    public String handleWebhook(@RequestBody WebhookRequest payload) {
         // Process the incoming data (e.g., save to DB, trigger an event)
         logger.info("웹훅 통지 정보: {}", payload);
         // In a real application, you might use WebSockets or Server-Sent Events (SSE)
